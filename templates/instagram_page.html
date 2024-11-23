@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Posts</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Link to CSS -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Instagram Posts</h1>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/instagram">Instagram</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="instagram-posts">
+            <div class="posts-container">
+                {% for post in posts %}
+<div class="post-card">
+    <div class="post-image-container">
+        <img src="{{ post[5] }}" alt="Post Media" class="post-image">
+    </div>
+    <div class="post-content">
+        <h2 class="post-user">User ID: {{ post[2] }}</h2>
+        <p class="post-description">{{ post[1] }}</p>
+        <div class="post-stats">
+            <p><strong>Photo ID:</strong> {{ post[3] }}</p>
+            <p><strong>Posted On:</strong> {{ post[4] }}</p>
+        </div>
+        <p><strong>Referred User ID:</strong> {{ post[6] }}</p>
+        <p><strong>Referred Date:</strong> {{ post[7] }}</p>
+        <p><strong>Post ID:</strong> {{ post[0] }}</p>
+    </div>
+</div>
+{% endfor %}
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; ADBs Project 2024</p>
+    </footer>
+</body>
+</html>

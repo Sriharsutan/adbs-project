@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard</title>
+    <link rel="stylesheet" href="../static/index.css">
+</head>
+<body>
+    <header>
+        <h1>Social Media Dashboard</h1>
+        <div class="news-ticker">
+            Trending News: <a href="#">Instagram introduces new features for creators.</a> 
+            <a href="#">Facebook's latest update boosts user interaction.</a> 
+            <a href="#">Twitter expands its Spaces feature for creators.</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="carousel">
+            <div class="carousel-content" id="carousel-content">
+                <div class="carousel-item">
+                    <h2>New Instagram Update</h2>
+                    <p>Instagram's latest update brings new tools for creators to engage with their audience in real-time.</p>
+                </div>
+                <div class="carousel-item">
+                    <h2>Facebook's New Policy</h2>
+                    <p>Facebook has introduced a new policy aimed at improving user privacy and security across its platform.</p>
+                </div>
+                <div class="carousel-item">
+                    <h2>Reddit's Growing Influence</h2>
+                    <p>Reddit continues to gain popularity with new features that enhance user experience and interaction.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- <div class="box" id="instagram">
+                <img src="images/insta.jpeg" alt="Instagram Logo">
+                <p>Instagram</p>
+            </div> -->
+            <div class="box" id="instagram" onclick="window.location.href='/instagram_page.html';">
+                <img src="../images/insta.jpeg" alt="Instagram Logo">
+                <p>Instagram</p>
+            </div>
+            
+            <div class="box" id="facebook">
+                <img src="../images/fb.jpeg" alt="Facebook Logo">
+                <p>Facebook</p>
+            </div>
+            <div class="box" id="twitter">
+                <img src="../images/x.png" alt="Twitter Logo">
+                <p>Twitter</p>
+            </div>
+            <div class="box" id="reddit">
+                <img src="../images/reddit.png" alt="Reddit Logo">
+                <p>Reddit</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; ADBs Project 2024  | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Simple Carousel Logic (Auto scroll)
+        let index = 0;
+        const carouselContent = document.getElementById('carousel-content');
+        const items = document.querySelectorAll('.carousel-item');
+        
+        function moveCarousel() {
+            index = (index + 1) % items.length;
+            carouselContent.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(moveCarousel, 3000); // Change every 3 seconds
+    </script>
